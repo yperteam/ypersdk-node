@@ -1,0 +1,31 @@
+{
+  "name": "ypersdk-node",
+  "version": "1.0.0",
+  "description": "Yper API SDK",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^8.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1"
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yperteam/ypersdk-node.git"
+  },
+  "keywords": [],
+  "author": "iGitScor <sebastien.correaud@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yperteam/ypersdk-node/issues"
+  },
+  "homepage": "https://github.com/yperteam/ypersdk-node#readme"
+}
