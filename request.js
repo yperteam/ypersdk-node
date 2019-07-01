@@ -1,4 +1,3 @@
-//var rp = require('request-promise');
 import requestPromise from 'request-promise';
 
 class Request {
