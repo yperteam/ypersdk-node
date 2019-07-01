@@ -21,7 +21,7 @@ class Request {
             uri = api.baseURL + endpoint;
         }
         let options = {
-            uri: uri,
+            uri,
             method,
             body: data,
             json: true,
