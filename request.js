@@ -8,14 +8,6 @@ class Request {
 
     }
 
-    static addHeader(header, value) {
-        this.headers = [header, ':', value];
-    }
-
-    static setBody(body) {
-        this.body = body;
-    }
-
     static async performRequest(endpoint, method, req, data, api) {
         let query = {};
         if (!req) {
