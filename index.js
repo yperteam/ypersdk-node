@@ -8,7 +8,6 @@ const applicationSecret = process.env.APP_SECRET;
 async function start() {
     const api = new API(applicationKey, applicationSecret, [], 'beta');
     await api.getToken();
-    Invoices.get(api);
 }
 
 start();
