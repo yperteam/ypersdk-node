@@ -1,8 +1,14 @@
 import { API } from './api';
-
-require('dotenv');
+import { Invoices } from './service/invoice/read';
+require('dotenv').config();
 
 const applicationKey = process.env.APP_ID;
 const applicationSecret = process.env.APP_SECRET;
 
-const api = new API(applicationKey, applicationSecret, [], 'beta');
+async function start() {
+    const api = new API(applicationKey, applicationSecret, [], 'beta');
+    await api.getToken();
+    Invoices.get(api);
+}
+
+start();
