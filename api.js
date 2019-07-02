@@ -29,7 +29,7 @@ export class API {
   }
 
   async getToken() {
-    const token = await Request.performRequest('/oauth/token', 'POST', null, {
+    const req = new Request('/oauth/token', 'POST', null, {
       'client_id': this.applicationKey,
       'client_secret': this.applicationSecret,
       'grant_type': 'client_credentials',
@@ -41,6 +41,7 @@ export class API {
         'invoice:index',
         'invoice:validate']
     }, this);
+    const token = await req.perform();
     this.access_token = token.result.access_token;
   }
 }

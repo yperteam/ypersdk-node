@@ -1,32 +1,22 @@
 import requestPromise from 'request-promise';
 
 class Request {
-    constructor(method, url) {
-        this.method = method;
-        this.url = url;
-
-    }
-
-    static async performRequest(endpoint, method, req, data, api) {
-        let query = {};
+    constructor(endpoint, method, req, body, api) {
+        let qs = {};
         if (!req) {
             req = { headers: { authorization: '' }, query: {} };
         }
         if (req && req.query) {
             req.query = req.query || {};
-            query = Object.assign(query, req.query);
+            qs = Object.assign(qs, req.query);
         }
-        let uri = endpoint;
-        if (!endpoint.startsWith('http')) {
-            uri = api.baseURL + endpoint;
-        }
-        let options = {
-            uri,
+        this.options = {
+            uri: api.baseURL + endpoint,
             method,
-            body: data,
+            body,
             json: true,
             resolveWithFullResponse: true,
-            qs: query,
+            qs,
             headers: {
                 'User-Agent': 'Request-Promise',
                 Authorization: `Bearer ${api.access_token}`,
@@ -36,7 +26,11 @@ class Request {
             },
 
         };
-        return requestPromise(options)
+
+    }
+
+    async perform() {
+        return requestPromise(this.options)
             .then(function (body) {
                 return body.body;
             });
