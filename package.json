@@ -27,5 +27,12 @@
   "bugs": {
     "url": "https://github.com/yperteam/ypersdk-node/issues"
   },
-  "homepage": "https://github.com/yperteam/ypersdk-node#readme"
+  "homepage": "https://github.com/yperteam/ypersdk-node#readme",
+  "engines": {
+    "node": ">=8"
+  },
+  "files": [
+    "*.js",
+    ".babelrc"
+  ],
 }
