@@ -4,7 +4,8 @@
   "description": "Yper API SDK",
   "main": "index.js",
   "dependencies": {
-    "dotenv": "^8.0.0"
+    "dotenv": "^8.0.0",
+    "request-promise": "^4.2.4"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -27,5 +28,12 @@
   "bugs": {
     "url": "https://github.com/yperteam/ypersdk-node/issues"
   },
-  "homepage": "https://github.com/yperteam/ypersdk-node#readme"
+  "homepage": "https://github.com/yperteam/ypersdk-node#readme",
+  "engines": {
+    "node": ">=8"
+  },
+  "files": [
+    "*.js",
+    ".babelrc"
+  ]
 }
