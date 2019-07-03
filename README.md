@@ -1,5 +1,7 @@
 # ypersdk-node
 
+[![CircleCI](https://circleci.com/gh/yperteam/ypersdk-node/tree/master.svg?style=svg)](https://circleci.com/gh/yperteam/ypersdk-node/tree/master)
+
 ## Installation
 
 `npm i`
