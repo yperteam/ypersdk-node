@@ -24,7 +24,6 @@ class Request {
                 'X-Request-Timestamp': 0,
                 'accept-version': ['']
             },
-
         };
 
     }
