@@ -1,4 +1,4 @@
-import { Request } from './request';
+const Request = require('./request');
 
 const endpoints = {
   'development': 'http://localhost:5000',
@@ -6,7 +6,7 @@ const endpoints = {
   'production': 'https://api.yper.io'
 };
 
-export class API {
+class API {
   constructor(
     applicationKey,
     applicationSecret,
@@ -45,3 +45,5 @@ export class API {
     this.access_token = token.result.access_token;
   }
 }
+
+module.exports = API;

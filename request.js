@@ -1,4 +1,4 @@
-import requestPromise from 'request-promise';
+const requestPromise = require('request-promise');
 
 class Request {
     constructor(endpoint, method, req, body, api) {
@@ -24,7 +24,6 @@ class Request {
                 'X-Request-Timestamp': 0,
                 'accept-version': ['']
             },
-
         };
 
     }
@@ -37,4 +36,4 @@ class Request {
     }
 }
 
-export { Request };
+module.exports = Request;

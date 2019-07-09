@@ -1,4 +1,5 @@
-import { API } from '../api';
+import "babel-polyfill";
+const API = require('../api');
 
 describe('Core API', () => {
   it('should instanciate right environment', () => {
