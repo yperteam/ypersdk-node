@@ -1,6 +1,6 @@
-import { Request } from '../../request';
+const Request = require('../../request');
 
-export class Invoices {
+class Invoices {
 
     constructor(api) {
         this.api = api;
@@ -31,3 +31,5 @@ export class Invoices {
         return await req.perform();
     }
 }
+
+module.exports = Invoices;
