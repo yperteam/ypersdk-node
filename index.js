@@ -1,14 +1,15 @@
-import { API } from './api';
-import { Invoices } from './service/invoice/request';
+const Invoices = require('./service/invoice/request');
+const API = require('./api');
 require('dotenv').config();
+
+async function init(api) {
+    await api.getToken();
+}
 
 const applicationKey = process.env.APP_ID;
 const applicationSecret = process.env.APP_SECRET;
+const api = new API(applicationKey, applicationSecret, [], 'beta');
 
-async function start() {
-    const api = new API(applicationKey, applicationSecret, [], 'beta');
-    await api.getToken();
-    const inv = new Invoices(api);
-}
-
-start();
+init(api);
+const invoices = new Invoices(api);
+module.exports = { invoices };

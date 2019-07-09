@@ -1,4 +1,4 @@
-import requestPromise from 'request-promise';
+const requestPromise = require('request-promise');
 
 class Request {
     constructor(endpoint, method, req, body, api) {
@@ -37,4 +37,4 @@ class Request {
     }
 }
 
-export { Request };
+module.exports = Request;
