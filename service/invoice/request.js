@@ -6,29 +6,37 @@ class Invoices {
         this.api = api;
     }
 
+    async execute(path, action, body, withRetry) {
+        let response;
+        const req = new Request(path, action, null, body, this.api);
+        response = await req.perform().catch(async reason => {
+            if (`${reason.statusCode}` === '401' && withRetry) {
+                await this.api.getToken();
+                response = this.execute(path, action, body, false);
+            }
+        });
+
+        return response;
+    }
+
     async get(id) {
-        const req = new Request(`/invoice/${id}`, 'GET', null, null, this.api);
-        return await req.perform();
+        return await this.execute(`/invoice/${id}`, 'GET', null, true)
     }
 
     async create(body) {
-        const req = new Request('/invoice', 'POST', null, body, this.api);
-        return await req.perform();
+        return await this.execute('/invoice', 'POST', body, true);
     }
 
     async addItem(id, item) {
-        const req = new Request(`/invoice/${id}/item`, 'POST', null, item, this.api);
-        return await req.perform();
+        return await this.execute(`/invoice/${id}/item`, 'POST', item, true);
     }
 
     async validate(id) {
-        const req = new Request(`/invoice/${id}/validate`, 'POST', null, null, this.api);
-        return await req.perform();
+        return await this.execute(`/invoice/${id}/validate`, 'POST', null, true);
     }
 
     async download(id) {
-        const req = new Request(`/invoice/${id}/download`, 'GET', null, null, this.api);
-        return await req.perform();
+        return await this.execute(`/invoice/${id}/download`, 'GET', null, true);
     }
 }
 
