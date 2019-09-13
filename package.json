@@ -1,6 +1,6 @@
 {
   "name": "ypersdk-node",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Yper API SDK",
   "main": "index.js",
   "dependencies": {
