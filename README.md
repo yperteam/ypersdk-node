@@ -8,10 +8,14 @@
 
 Duplicate `.env.local` as `.env` file and fill values
 
+## Configuration
+
+- `YPER_ENV`: *production* (*beta* otherwise)
+
 ## Test
 
 `npm test`
 
-### Watch mode
+### Development
 
 `npm test -- --watch`
